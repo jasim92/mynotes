@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "864140492580",
+    "project_id": "jassem-notes-flutter",
+    "storage_bucket": "jassem-notes-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864140492580:android:e4656c8c60582a74443db1",
+        "android_client_info": {
+          "package_name": "com.jassem.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864140492580-sdn49ql686njq8t092qr4a3gtngh3qcd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0WntyI41ze6jqJMKR2JDVFx-C6kE8sXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864140492580-sdn49ql686njq8t092qr4a3gtngh3qcd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "864140492580-ih7bqh0r07d86iiktgj8q7md9u8v1akt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jassem.mynotes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
