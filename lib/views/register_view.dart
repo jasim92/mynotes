@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:developer' as devtools show log;
 
 import 'package:mynotes/constants/routes.dart';
+import 'package:mynotes/utilities/error_dialog.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -58,22 +59,24 @@ class _RegisterViewState extends State<RegisterView> {
                 final password = _pass.text;
                 try {
                   //to create user with firebase and await for the response by using keyword await
-                  final userCredential = await FirebaseAuth.instance
+                await FirebaseAuth.instance
                       .createUserWithEmailAndPassword(
-                          email: email, password: password);
-                  devtools.log(userCredential.toString());
+                          email: email, password: password,);
+                  final user = FirebaseAuth.instance.currentUser;
+                  await user?.sendEmailVerification();
+                  Navigator.of(context).pushNamed(verifyEmailRoute);
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'weak-password') {
-                    devtools.log("Please choose strong password");
+                    await showErrorDialog(context, "Please choose strong password");
                   } else if (e.code == 'email-already-in-use') {
-                    devtools.log("Email already in use");
+                    await showErrorDialog(context, "Email already in use");
                   } else if (e.code == 'invalid-email') {
-                    devtools.log("invalid email");
+                    await showErrorDialog(context, "invalid email");
                   } else {
-                    devtools.log(e.code);
+                    await showErrorDialog(context, 'Error: ${e.code}');
                   }
                 } catch (e) {
-                  devtools.log("Some bad happened");
+                  await showErrorDialog(context, e.toString());
                 }
               },
               child: Title(color: Colors.green, child: const Text("Register"))),
