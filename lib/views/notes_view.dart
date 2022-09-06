@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as devtool show log;
+
+
 enum MenuAction { logout }
 
 class NotesView extends StatefulWidget {
@@ -42,6 +44,7 @@ class _NotesViewState extends State<NotesView> {
           )
         ],
       ),
+      body: const Text("jasim chouhan"),
     );
   }
 }

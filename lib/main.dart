@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +22,7 @@ void main() {
     routes: {
       "/login": (context) => const LoginView(),
       "/register": (context) => const RegisterView(),
+      "/notes": (context) => const NotesView(),
     },
   ));
 }
@@ -35,7 +38,7 @@ class HomePage extends StatelessWidget {
         options: DefaultFirebaseOptions.currentPlatform,
       ),
       builder: (context, snapshot) {
-        //this snapshot is type pf async here
+        //this snapshot is type of async here
         // we can show loading message by knowing the state of snapshot
         switch (snapshot.connectionState) {
           case ConnectionState.done:
